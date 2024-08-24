@@ -18,6 +18,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        astrowhite: "#f2f2f2",
         nauf: "#06b6d4",
         border: "hsl(var(--border))",
         // input: "hsl(var(--input))",

@@ -1,13 +1,9 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/OtBUz4XcCsg
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import logo from "../assets/logo-no-bg.png"
 
 export default function Auth() {
   return (
@@ -15,19 +11,17 @@ export default function Auth() {
       <div className="w-full max-w-md space-y-8">
         <div>
           <img
-            src="/placeholder.svg"
-            alt="Your Company"
-            width={48}
-            height={48}
-            className="mx-auto h-12 w-auto"
+            src={logo}
+            alt="Astro Logo"
+            width={58}
+            height={58}
+            className="mx-auto h-44 w-auto"
             style={{ aspectRatio: "48/48", objectFit: "cover" }}
           />
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-foreground">
             Sign in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-muted-foreground">
-           
-         
           </p>
         </div>
         <div className="space-y-6">

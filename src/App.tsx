@@ -10,8 +10,8 @@ import { Toaster } from "@/components/ui/sonner"
 function App() {
   return (
     <div className='transition-colors ease-in-out duration-1000'>
-      <Navbar />
-      <Toaster />
+
+
       <Outlet />
     </div>
   )
