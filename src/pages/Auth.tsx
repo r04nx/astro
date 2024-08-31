@@ -7,15 +7,15 @@ import logo from "../assets/logo-no-bg.png"
 
 export default function Auth() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background px-4  sm:px-6 lg:px-8 -mt-12">
       <div className="w-full max-w-md space-y-8">
         <div>
           <img
             src={logo}
             alt="Astro Logo"
-            width={58}
-            height={58}
-            className="mx-auto h-44 w-auto"
+            width={100}
+            height={100}
+            className="mx-auto h-60 w-auto"
             style={{ aspectRatio: "48/48", objectFit: "cover" }}
           />
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-foreground">

@@ -1,9 +1,5 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/wQ01ZVH7d4P
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
-import Link from "next/link"
+
+import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuList, NavigationMenuLink } from "@/components/ui/navigation-menu"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
@@ -15,65 +11,14 @@ import { Input } from "@/components/ui/input"
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
 import { Separator } from "@/components/ui/separator"
 import { Textarea } from "@/components/ui/textarea"
+import Navbar from "../components/common/Navbar.tsx"
 
-export default function Component() {
+
+export default function Dashboard() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <header className="sticky top-0 z-40 border-b bg-background">
-        <div className="container flex h-16 items-center justify-between px-4 sm:px-6 md:px-8">
-          <nav className="flex items-center gap-4 md:gap-6">
-            <Link href="#" className="flex items-center gap-2 font-bold" prefetch={false}>
-              <OrbitIcon className="h-6 w-6" />
-              <span className="sr-only">Astrologer Dashboard</span>
-            </Link>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuLink asChild>
-                  <Link href="#" className="px-4 py-2 text-sm font-medium" prefetch={false}>
-                    My Profile
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#" className="px-4 py-2 text-sm font-medium" prefetch={false}>
-                    Plans and Settings
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#" className="px-4 py-2 text-sm font-medium" prefetch={false}>
-                    Logout
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </nav>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="icon" className="overflow-hidden rounded-full">
-                <img
-                  src="/placeholder.svg"
-                  width={36}
-                  height={36}
-                  alt="Avatar"
-                  className="overflow-hidden rounded-full"
-                  style={{ aspectRatio: "36/36", objectFit: "cover" }}
-                />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>
-                <Link href="#" onClick={() => showProfileModal()} prefetch={false}>
-                  View Profile
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </header>
+      <Navbar></Navbar>
+    
       <main className="flex-1 container px-4 py-8 sm:px-6 md:px-8">
         <Tabs defaultValue="queries">
           <TabsList>
@@ -133,11 +78,11 @@ export default function Component() {
                             <DropdownMenuContent align="end">
                               <DropdownMenuItem>
                                 <UserIcon className="mr-2 h-4 w-4" />
-                                <span onClick={() => showUserProfileModal()}>View Profile</span>
+                                <span onClick={() => {console.log("User")} }>View Profile</span>
                               </DropdownMenuItem>
                               <DropdownMenuItem>
                                 <MessageCircleIcon className="mr-2 h-4 w-4" />
-                                <span onClick={() => showUserQueryModal()}>Reply</span>
+                                <span onClick={() => {}}>Reply</span>
                               </DropdownMenuItem>
                               <DropdownMenuSeparator />
                               <DropdownMenuItem className="text-red-500">
@@ -198,6 +143,7 @@ export default function Component() {
                     <div className="flex items-start gap-4">
                       <Avatar>
                         <AvatarImage src="/placeholder-user.jpg" alt="User Avatar" />
+                        <UserAvatar className="w-8 h-8 text-gray-400 dark:text-gray-600" />
                         <AvatarFallback>JD</AvatarFallback>
                       </Avatar>
                       <div className="flex-1 rounded-lg bg-muted p-4">
@@ -212,8 +158,9 @@ export default function Component() {
                     </div>
                     <div className="flex items-start gap-4">
                       <Avatar>
-                        <AvatarImage src="/placeholder-user.jpg" alt="User Avatar" />
+                        <AvatarImage src="" alt="User Avatar" />
                         <AvatarFallback>JD</AvatarFallback>
+                        <UserAvatar className="w-8 h-8 text-gray-400 dark:text-gray-600" />
                       </Avatar>
                       <div className="flex-1 rounded-lg bg-muted p-4">
                         <div className="flex items-center justify-between">
@@ -335,7 +282,7 @@ export default function Component() {
   )
 }
 
-function MessageCircleIcon(props) {
+function MessageCircleIcon(props:React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -355,7 +302,7 @@ function MessageCircleIcon(props) {
 }
 
 
-function MoveVerticalIcon(props) {
+function MoveVerticalIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -377,7 +324,7 @@ function MoveVerticalIcon(props) {
 }
 
 
-function OrbitIcon(props) {
+function OrbitIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -401,7 +348,7 @@ function OrbitIcon(props) {
 }
 
 
-function TrashIcon(props) {
+function TrashIcon(props: React.SVGProps<SVGSVGElement> ) {
   return (
     <svg
       {...props}
@@ -421,9 +368,28 @@ function TrashIcon(props) {
     </svg>
   )
 }
+function UserAvatar(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="36"
+      height="36"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="7" r="4" />
+      <path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7" />
+    </svg>
+  );
+}
 
 
-function UserIcon(props) {
+function UserIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
